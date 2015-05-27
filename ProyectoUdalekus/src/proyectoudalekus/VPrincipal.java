@@ -14,7 +14,8 @@ public class VPrincipal extends javax.swing.JFrame {
     // Referencias entre las ventanas
     private VHojaParticipacion vHojaParticipacion;
     
-    
+    // Referencia a la solicitud
+    private Solicitud solicitud;
     
     /**
      * Creates new form VPrincipal
@@ -77,6 +78,8 @@ public class VPrincipal extends javax.swing.JFrame {
 
         // Botón: Nueva inscripción
 
+        solicitud = new Solicitud();
+        
         // Crear la nueva ventana
         VHojaParticipacion v = new VHojaParticipacion();
         
@@ -84,6 +87,9 @@ public class VPrincipal extends javax.swing.JFrame {
         vHojaParticipacion = v;
         v.setvPrincipal(this);
 
+        // Pasarle la solicitud a la nueva ventana
+        v.setSolicitud(solicitud);
+        
         // Saltar a la nueva ventana
         v.setVisible(true);
         this.setVisible(false);
@@ -142,5 +148,19 @@ public class VPrincipal extends javax.swing.JFrame {
      */
     public void setvHojaParticipacion(VHojaParticipacion vHojaParticipacion) {
         this.vHojaParticipacion = vHojaParticipacion;
+    }
+
+    /**
+     * @return the solicitud
+     */
+    public Solicitud getSolicitud() {
+        return solicitud;
+    }
+
+    /**
+     * @param solicitud the solicitud to set
+     */
+    public void setSolicitud(Solicitud solicitud) {
+        this.solicitud = solicitud;
     }
 }

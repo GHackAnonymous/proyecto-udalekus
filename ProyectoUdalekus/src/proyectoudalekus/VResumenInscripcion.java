@@ -15,6 +15,8 @@ public class VResumenInscripcion extends javax.swing.JFrame {
     private VConfirmacionInscripcion vConfirmacionInscripcion;
     private VHojaParticipacion vHojaParticipacion;
     
+    // Referencia a la solicitud
+    private Solicitud solicitud;
     
     /**
      * Creates new form VResumenInscripcion
@@ -112,5 +114,19 @@ public class VResumenInscripcion extends javax.swing.JFrame {
      */
     public void setvHojaParticipacion(VHojaParticipacion vHojaParticipacion) {
         this.vHojaParticipacion = vHojaParticipacion;
+    }
+
+    /**
+     * @return the solicitud
+     */
+    public Solicitud getSolicitud() {
+        return solicitud;
+    }
+
+    /**
+     * @param solicitud the solicitud to set
+     */
+    public void setSolicitud(Solicitud solicitud) {
+        this.solicitud = solicitud;
     }
 }

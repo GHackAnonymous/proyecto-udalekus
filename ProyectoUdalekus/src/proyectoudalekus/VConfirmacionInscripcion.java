@@ -14,6 +14,8 @@ public class VConfirmacionInscripcion extends javax.swing.JFrame {
     // Referencias entre las ventanas
     private VResumenInscripcion vResumenInscripcion;
 
+    // Referencia a la solicitud
+    private Solicitud solicitud;
     
     /**
      * Creates new form VConfirmacionInscripcion
@@ -97,5 +99,19 @@ public class VConfirmacionInscripcion extends javax.swing.JFrame {
      */
     public void setvResumenInscripcion(VResumenInscripcion vResumenInscripcion) {
         this.vResumenInscripcion = vResumenInscripcion;
+    }
+
+    /**
+     * @return the solicitud
+     */
+    public Solicitud getSolicitud() {
+        return solicitud;
+    }
+
+    /**
+     * @param solicitud the solicitud to set
+     */
+    public void setSolicitud(Solicitud solicitud) {
+        this.solicitud = solicitud;
     }
 }

@@ -14,6 +14,9 @@ public class VHojaParticipacion extends javax.swing.JFrame {
     // Referencias entre las ventanas
     private VResumenInscripcion vResumenInscripcion;
     private VPrincipal vPrincipal;
+
+    // Referencia a la solicitud
+    private Solicitud solicitud;
     
     /**
      * Creates new form VHojaParticipacion
@@ -284,6 +287,11 @@ public class VHojaParticipacion extends javax.swing.JFrame {
         });
 
         jButton3.setText("Añadir otra inscripción");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -355,6 +363,48 @@ public class VHojaParticipacion extends javax.swing.JFrame {
             jComboBox2.addItem("Dulantzi");
         }
     }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+
+        // Botón: Añadir inscripción
+        
+        // Guardar los datos en el modelo
+
+        // Solicitud
+        solicitud.setFecha("2015-05-27 21:31:00");
+
+        // Hoja de participación
+        HojaParticipacion h = new HojaParticipacion();
+        solicitud.getHojasParticipacion().add(h);
+        
+        h.setProvincia((String)jComboBox1.getSelectedItem());
+        h.setMunicipio((String)jComboBox2.getSelectedItem());
+
+        // Tutor
+        Tutor t = new Tutor();
+        h.setTutor(t);
+        
+        t.setNombre(jTextField1.getText());
+        t.setApellido1(jTextField2.getText());
+        t.setApellido2(jTextField3.getText());
+        
+        // Menor
+        Menor m = new Menor();
+        h.setMenor(m);
+        
+        m.setNombre(jTextField4.getText());
+        m.setApellido1(jTextField5.getText());
+        m.setApellido2(jTextField6.getText());
+        
+        // Comprobar si hay que guardar o sacar otra ventana
+        if( solicitud.getHojasParticipacion().size() < 3 ) {
+            // Volver a pedir otro
+            limpiarFormulario();
+        } else
+        {
+            // Saltar al resumen de inscripción
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -447,5 +497,19 @@ public class VHojaParticipacion extends javax.swing.JFrame {
      */
     public void setvPrincipal(VPrincipal vPrincipal) {
         this.vPrincipal = vPrincipal;
+    }
+
+    /**
+     * @return the solicitud
+     */
+    public Solicitud getSolicitud() {
+        return solicitud;
+    }
+
+    /**
+     * @param solicitud the solicitud to set
+     */
+    public void setSolicitud(Solicitud solicitud) {
+        this.solicitud = solicitud;
     }
 }
