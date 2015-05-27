@@ -10,8 +10,9 @@ public class ProyectoUdalekus {
 
     public static void main(String[] args) {
 
-        // TODO code application logic here
-
+        VPrincipal ventanaPrincipal = new VPrincipal();
+        ventanaPrincipal.setVisible(true);
+        
     }
 
 }
