@@ -3,15 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package modelo;
 
 public class HojaParticipacion {
 
     private Tutor tutor;
-    private Menor menor;    
+    private Menor menor;
     private Solicitud solicitud;
-    
+
     private String calle;
     private int numero;
     private int piso;
@@ -19,7 +18,7 @@ public class HojaParticipacion {
     private int codigoPostal;
     private String municipio;
     private String provincia;
-    
+
     /**
      * @return the tutor
      */
@@ -159,8 +158,5 @@ public class HojaParticipacion {
     public void setSolicitud(Solicitud solicitud) {
         this.solicitud = solicitud;
     }
-    
-    
-    
-    
+
 }

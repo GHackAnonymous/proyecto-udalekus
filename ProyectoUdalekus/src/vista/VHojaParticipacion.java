@@ -22,7 +22,7 @@ public class VHojaParticipacion extends javax.swing.JFrame {
 
     // Referencia a la solicitud
     private Solicitud solicitud;
-    
+
     /**
      * Creates new form VHojaParticipacion
      */
@@ -31,12 +31,11 @@ public class VHojaParticipacion extends javax.swing.JFrame {
 
         // Centrado del JFrame
         setLocationRelativeTo(null);
-        
+
         // Vaciamos los campos
         limpiarFormulario();
     }
 
-    
     public void limpiarFormulario() {
 
         jTextField1.setText("");
@@ -45,19 +44,18 @@ public class VHojaParticipacion extends javax.swing.JFrame {
         jTextField4.setText("");
         jTextField5.setText("");
         jTextField6.setText("");
-        
+
         jComboBox1.removeAllItems();
-        
+
         jComboBox1.addItem("Araba");
         jComboBox1.addItem("Bizkaia");
         jComboBox1.addItem("Gipuzkoa");
-        
+
         jComboBox2.removeAllItems();
         jComboBox3.removeAllItems();
-        
+
     }
-    
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -348,7 +346,7 @@ public class VHojaParticipacion extends javax.swing.JFrame {
 
         // Guardar los datos
         guardarDatos();
-        
+
         // Saltar al resumen de inscripción
         saltarAlResumen();
 
@@ -357,19 +355,17 @@ public class VHojaParticipacion extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 
         // Botón: Cancelar
-
         this.setVisible(false);
         vPrincipal.setVisible(true);
-        
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
 
         // Buscar las localidades correspondientes a una provincia
+        String provincia = (String) jComboBox1.getSelectedItem();
 
-        String provincia = (String)jComboBox1.getSelectedItem();
-        
-        if(provincia != null && provincia.equals("Araba")) {
+        if (provincia != null && provincia.equals("Araba")) {
             jComboBox2.addItem("Vitoria-Gasteiz");
             jComboBox2.addItem("Amurrio");
             jComboBox2.addItem("Llodio");
@@ -381,72 +377,69 @@ public class VHojaParticipacion extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
 
         // Botón: Añadir inscripción
-        
         // Guardar los datos en el modelo
         guardarDatos();
-        
+
         // Comprobar si hay que guardar o sacar otra ventana
-        if( solicitud.getHojasParticipacion().size() < 3 ) {
+        if (solicitud.getHojasParticipacion().size() < 3) {
             // Volver a pedir otro
             limpiarFormulario();
-        } else
-        {
+        } else {
             // Saltar al resumen de inscripción
             saltarAlResumen();
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    
     public void guardarDatos() {
-        
+
         // Solicitud
         solicitud.setFecha("2015-05-27 21:31:00");
 
         // Hoja de participación
         HojaParticipacion h = new HojaParticipacion();
         solicitud.getHojasParticipacion().add(h);
-        
-        h.setProvincia((String)jComboBox1.getSelectedItem());
-        h.setMunicipio((String)jComboBox2.getSelectedItem());
+
+        h.setProvincia((String) jComboBox1.getSelectedItem());
+        h.setMunicipio((String) jComboBox2.getSelectedItem());
 
         // Tutor
         Tutor t = new Tutor();
         h.setTutor(t);
-        
+
         t.setNombre(jTextField1.getText());
         t.setApellido1(jTextField2.getText());
         t.setApellido2(jTextField3.getText());
-        
+
         // Menor
         Menor m = new Menor();
         h.setMenor(m);
-        
+
         m.setNombre(jTextField4.getText());
         m.setApellido1(jTextField5.getText());
         m.setApellido2(jTextField6.getText());
-    }    
-    
+    }
+
     public void saltarAlResumen() {
 
         // Crear la nueva ventana
-            VResumenInscripcion v = new VResumenInscripcion();
+        VResumenInscripcion v = new VResumenInscripcion();
 
-            // Conectar las dos ventanas
-            vResumenInscripcion = v;
-            v.setvHojaParticipacion(this);
+        // Conectar las dos ventanas
+        vResumenInscripcion = v;
+        v.setvHojaParticipacion(this);
 
-            // Pasarle la solicitud a la nueva ventana
-            v.setSolicitud(solicitud);
+        // Pasarle la solicitud a la nueva ventana
+        v.setSolicitud(solicitud);
 
-            // Cargar los datos
-            v.mostrarSolicitud();
-            
-            // Saltar a la nueva ventana
-            v.setVisible(true);
-            this.setVisible(false);
-   
+        // Cargar los datos
+        v.mostrarSolicitud();
+
+        // Saltar a la nueva ventana
+        v.setVisible(true);
+        this.setVisible(false);
+
     }
-    
+
     /**
      * @param args the command line arguments
      */

@@ -3,18 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package modelo;
 
 public class Tutor extends Persona {
-    
+
     private String telefono1;
     private String telefono2;
     private String telefono3;
     private String telefono4;
 
     private HojaParticipacion hojaParticipacion;
-    
+
     /**
      * @return the telefono1
      */
@@ -85,5 +84,4 @@ public class Tutor extends Persona {
         this.hojaParticipacion = hojaParticipacion;
     }
 
-    
 }

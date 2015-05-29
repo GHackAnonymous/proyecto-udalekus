@@ -15,10 +15,10 @@ public class VPrincipal extends javax.swing.JFrame {
 
     // Referencias entre las ventanas
     private VHojaParticipacion vHojaParticipacion;
-    
+
     // Referencia a la solicitud
     private Solicitud solicitud;
-    
+
     /**
      * Creates new form VPrincipal
      */
@@ -91,23 +91,22 @@ public class VPrincipal extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
         // Botón: Nueva inscripción
-
         solicitud = new Solicitud();
-        
+
         // Crear la nueva ventana
         VHojaParticipacion v = new VHojaParticipacion();
-        
+
         // Conectar las dos ventanas
         vHojaParticipacion = v;
         v.setvPrincipal(this);
 
         // Pasarle la solicitud a la nueva ventana
         v.setSolicitud(solicitud);
-        
+
         // Saltar a la nueva ventana
         v.setVisible(true);
         this.setVisible(false);
-        
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

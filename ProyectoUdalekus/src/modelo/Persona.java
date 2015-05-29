@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package modelo;
 
 public abstract class Persona {
@@ -83,6 +82,5 @@ public abstract class Persona {
     public void setDNI(String DNI) {
         this.DNI = DNI;
     }
-    
-    
+
 }

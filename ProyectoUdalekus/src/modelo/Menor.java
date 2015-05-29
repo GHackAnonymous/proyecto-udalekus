@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package modelo;
 
 public class Menor extends Persona {
@@ -14,7 +13,7 @@ public class Menor extends Persona {
     private boolean discapacidad;
 
     private HojaParticipacion hojaParticipacion;
-    
+
     /**
      * @return the centro
      */
@@ -84,6 +83,5 @@ public class Menor extends Persona {
     public void setHojaParticipacion(HojaParticipacion hojaParticipacion) {
         this.hojaParticipacion = hojaParticipacion;
     }
-    
-    
+
 }

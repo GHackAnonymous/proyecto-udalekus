@@ -16,24 +16,24 @@ public class VResumenInscripcion extends javax.swing.JFrame {
     // Referencias entre las ventanas
     private VConfirmacionInscripcion vConfirmacionInscripcion;
     private VHojaParticipacion vHojaParticipacion;
-    
+
     // Referencia a la solicitud
     private Solicitud solicitud;
-    
+
     /**
      * Creates new form VResumenInscripcion
      */
     public VResumenInscripcion() {
         initComponents();
-        
+
         // Centrado del JFrame
         setLocationRelativeTo(null);
-        
+
     }
 
     public void mostrarSolicitud() {
         // Rellenar los datos del formulario
-        
+
         // Tutor 1
         jLabel7.setText(solicitud.getHojasParticipacion().get(0).getTutor().getNombre());
         jLabel8.setText(solicitud.getHojasParticipacion().get(0).getTutor().getApellido1());
@@ -44,7 +44,7 @@ public class VResumenInscripcion extends javax.swing.JFrame {
         jLabel11.setText(solicitud.getHojasParticipacion().get(0).getMenor().getApellido1());
         jLabel12.setText(solicitud.getHojasParticipacion().get(0).getMenor().getApellido2());
 
-        if( solicitud.getHojasParticipacion().size() > 1 ) {
+        if (solicitud.getHojasParticipacion().size() > 1) {
             // Tutor 2
             jLabel16.setText(solicitud.getHojasParticipacion().get(1).getTutor().getNombre());
             jLabel17.setText(solicitud.getHojasParticipacion().get(1).getTutor().getApellido1());
@@ -56,7 +56,7 @@ public class VResumenInscripcion extends javax.swing.JFrame {
             jLabel24.setText(solicitud.getHojasParticipacion().get(1).getMenor().getApellido2());
         }
 
-        if( solicitud.getHojasParticipacion().size() > 2 ) {
+        if (solicitud.getHojasParticipacion().size() > 2) {
             // Tutor 3
             jLabel28.setText(solicitud.getHojasParticipacion().get(2).getTutor().getNombre());
             jLabel29.setText(solicitud.getHojasParticipacion().get(2).getTutor().getApellido1());
@@ -67,10 +67,9 @@ public class VResumenInscripcion extends javax.swing.JFrame {
             jLabel35.setText(solicitud.getHojasParticipacion().get(2).getMenor().getApellido1());
             jLabel36.setText(solicitud.getHojasParticipacion().get(2).getMenor().getApellido2());
         }
-    
+
     }
-    
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -125,7 +124,6 @@ public class VResumenInscripcion extends javax.swing.JFrame {
         jLabel35 = new javax.swing.JLabel();
         jLabel36 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
 
@@ -460,13 +458,6 @@ public class VResumenInscripcion extends javax.swing.JFrame {
 
         jScrollPane1.setViewportView(jPanel1);
 
-        jButton1.setText("Terminar y guardar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
         jButton2.setText("Cancelar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -474,7 +465,8 @@ public class VResumenInscripcion extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setText("Añadir otra inscripción");
+        jButton3.setText("Confirmar inscripción");
+        jButton3.setActionCommand("");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -489,8 +481,6 @@ public class VResumenInscripcion extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton3)
                 .addContainerGap())
         );
@@ -500,7 +490,6 @@ public class VResumenInscripcion extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton3)
-                    .addComponent(jButton1)
                     .addComponent(jButton2))
                 .addContainerGap())
         );
@@ -511,7 +500,7 @@ public class VResumenInscripcion extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 602, Short.MAX_VALUE)
+                .addComponent(jScrollPane1)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -526,21 +515,33 @@ public class VResumenInscripcion extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 
         // Botón: Cancelar
-/*
-        this.setVisible(false);
-        vPrincipal.setVisible(true);
-*/
+
+        /*
+         this.setVisible(false);
+         vPrincipal.setVisible(true);
+         */
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
 
+        // Confirmar inscripción
+        // Guardar los datos en Oracle
+        // Saltar a la ventana de confirmación
+        VConfirmacionInscripcion v = new VConfirmacionInscripcion();
+
+        // Conectar las dos ventanas
+        vConfirmacionInscripcion = v;
+        v.setvResumenInscripcion(this);
+
+        // Pasarle la solicitud a la nueva ventana
+        v.setSolicitud(solicitud);
+
+        // Saltar a la nueva ventana
+        v.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
@@ -579,7 +580,6 @@ public class VResumenInscripcion extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;

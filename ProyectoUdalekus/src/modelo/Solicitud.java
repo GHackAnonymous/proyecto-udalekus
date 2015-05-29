@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package modelo;
 
 import java.util.ArrayList;
@@ -11,18 +10,17 @@ import java.util.ArrayList;
 public class Solicitud {
 
     private ArrayList<HojaParticipacion> hojasParticipacion;
-    
+
     private int numero;
     private String fecha;
     private int numeroOrden;
     private String fechaCita;
     private String horaCita;
 
-    
     public Solicitud() {
         hojasParticipacion = new ArrayList<>();
     }
-    
+
     /**
      * @return the hojasParticipacion
      */
@@ -99,6 +97,5 @@ public class Solicitud {
     public void setHoraCita(String horaCita) {
         this.horaCita = horaCita;
     }
-    
-    
+
 }
