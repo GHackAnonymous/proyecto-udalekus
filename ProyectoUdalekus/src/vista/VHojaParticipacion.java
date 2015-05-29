@@ -124,7 +124,7 @@ public class VHojaParticipacion extends javax.swing.JFrame {
                     .addComponent(jLabel3))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 459, Short.MAX_VALUE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 356, Short.MAX_VALUE)
                     .addComponent(jTextField2)
                     .addComponent(jTextField3))
                 .addContainerGap())
@@ -304,7 +304,7 @@ public class VHojaParticipacion extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(55, Short.MAX_VALUE)
                 .addComponent(jButton2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton1)
@@ -329,8 +329,8 @@ public class VHojaParticipacion extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 640, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(jScrollPane1)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -345,7 +345,13 @@ public class VHojaParticipacion extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+
+        // Guardar los datos
+        guardarDatos();
+        
+        // Saltar al resumen de inscripción
+        saltarAlResumen();
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -377,7 +383,22 @@ public class VHojaParticipacion extends javax.swing.JFrame {
         // Botón: Añadir inscripción
         
         // Guardar los datos en el modelo
+        guardarDatos();
+        
+        // Comprobar si hay que guardar o sacar otra ventana
+        if( solicitud.getHojasParticipacion().size() < 3 ) {
+            // Volver a pedir otro
+            limpiarFormulario();
+        } else
+        {
+            // Saltar al resumen de inscripción
+            saltarAlResumen();
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
 
+    
+    public void guardarDatos() {
+        
         // Solicitud
         solicitud.setFecha("2015-05-27 21:31:00");
 
@@ -403,17 +424,29 @@ public class VHojaParticipacion extends javax.swing.JFrame {
         m.setNombre(jTextField4.getText());
         m.setApellido1(jTextField5.getText());
         m.setApellido2(jTextField6.getText());
-        
-        // Comprobar si hay que guardar o sacar otra ventana
-        if( solicitud.getHojasParticipacion().size() < 3 ) {
-            // Volver a pedir otro
-            limpiarFormulario();
-        } else
-        {
-            // Saltar al resumen de inscripción
-        }
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }    
+    
+    public void saltarAlResumen() {
 
+        // Crear la nueva ventana
+            VResumenInscripcion v = new VResumenInscripcion();
+
+            // Conectar las dos ventanas
+            vResumenInscripcion = v;
+            v.setvHojaParticipacion(this);
+
+            // Pasarle la solicitud a la nueva ventana
+            v.setSolicitud(solicitud);
+
+            // Cargar los datos
+            v.mostrarSolicitud();
+            
+            // Saltar a la nueva ventana
+            v.setVisible(true);
+            this.setVisible(false);
+   
+    }
+    
     /**
      * @param args the command line arguments
      */
