@@ -23,7 +23,11 @@ public class VHojaParticipacion extends javax.swing.JFrame {
      */
     public VHojaParticipacion() {
         initComponents();
+
+        // Centrado del JFrame
+        setLocationRelativeTo(null);
         
+        // Vaciamos los campos
         limpiarFormulario();
     }
 
@@ -36,7 +40,6 @@ public class VHojaParticipacion extends javax.swing.JFrame {
         jTextField4.setText("");
         jTextField5.setText("");
         jTextField6.setText("");
-        
         
         jComboBox1.removeAllItems();
         
