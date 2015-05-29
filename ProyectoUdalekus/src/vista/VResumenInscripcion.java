@@ -3,24 +3,27 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package proyectoudalekus;
+package vista;
+
+import modelo.Solicitud;
 
 /**
  *
  * @author widemos
  */
-public class VConfirmacionInscripcion extends javax.swing.JFrame {
+public class VResumenInscripcion extends javax.swing.JFrame {
 
     // Referencias entre las ventanas
-    private VResumenInscripcion vResumenInscripcion;
-
+    private VConfirmacionInscripcion vConfirmacionInscripcion;
+    private VHojaParticipacion vHojaParticipacion;
+    
     // Referencia a la solicitud
     private Solicitud solicitud;
     
     /**
-     * Creates new form VConfirmacionInscripcion
+     * Creates new form VResumenInscripcion
      */
-    public VConfirmacionInscripcion() {
+    public VResumenInscripcion() {
         initComponents();
     }
 
@@ -66,20 +69,20 @@ public class VConfirmacionInscripcion extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VConfirmacionInscripcion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VResumenInscripcion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VConfirmacionInscripcion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VResumenInscripcion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VConfirmacionInscripcion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VResumenInscripcion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VConfirmacionInscripcion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VResumenInscripcion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VConfirmacionInscripcion().setVisible(true);
+                new VResumenInscripcion().setVisible(true);
             }
         });
     }
@@ -88,17 +91,31 @@ public class VConfirmacionInscripcion extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     /**
-     * @return the vResumenInscripcion
+     * @return the vConfirmacionInscripcion
      */
-    public VResumenInscripcion getvResumenInscripcion() {
-        return vResumenInscripcion;
+    public VConfirmacionInscripcion getvConfirmacionInscripcion() {
+        return vConfirmacionInscripcion;
     }
 
     /**
-     * @param vResumenInscripcion the vResumenInscripcion to set
+     * @param vConfirmacionInscripcion the vConfirmacionInscripcion to set
      */
-    public void setvResumenInscripcion(VResumenInscripcion vResumenInscripcion) {
-        this.vResumenInscripcion = vResumenInscripcion;
+    public void setvConfirmacionInscripcion(VConfirmacionInscripcion vConfirmacionInscripcion) {
+        this.vConfirmacionInscripcion = vConfirmacionInscripcion;
+    }
+
+    /**
+     * @return the vHojaParticipacion
+     */
+    public VHojaParticipacion getvHojaParticipacion() {
+        return vHojaParticipacion;
+    }
+
+    /**
+     * @param vHojaParticipacion the vHojaParticipacion to set
+     */
+    public void setvHojaParticipacion(VHojaParticipacion vHojaParticipacion) {
+        this.vHojaParticipacion = vHojaParticipacion;
     }
 
     /**

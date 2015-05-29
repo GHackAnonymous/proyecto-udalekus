@@ -6,6 +6,8 @@
 
 package proyectoudalekus;
 
+import vista.VPrincipal;
+
 public class ProyectoUdalekus {
 
     public static void main(String[] args) {

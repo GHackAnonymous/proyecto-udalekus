@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package proyectoudalekus;
+package modelo;
 
 public class HojaParticipacion {
 

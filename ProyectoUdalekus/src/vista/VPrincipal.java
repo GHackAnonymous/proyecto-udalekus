@@ -3,7 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package proyectoudalekus;
+package vista;
+
+import modelo.Solicitud;
 
 /**
  *
@@ -52,7 +54,7 @@ public class VPrincipal extends javax.swing.JFrame {
 
         jLabel1.setText("Bienvenido, haga click para continuar");
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectoudalekus/20150306101608310_Udalekuak 2015.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Udalekuak 2015.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

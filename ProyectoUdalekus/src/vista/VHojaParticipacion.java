@@ -3,7 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package proyectoudalekus;
+package vista;
+
+import modelo.HojaParticipacion;
+import modelo.Menor;
+import modelo.Solicitud;
+import modelo.Tutor;
 
 /**
  *
